@@ -1,8 +1,36 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
-// Variables
-@import 'variables';
+// Media
+// @import 'utils/media';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+// Variables
+// @import 'utils/variables';
+// @import 'variables';
+// @import 'helper';
+// @import 'utils/variables';
+// @import 'utils/general';
+// @import 'utils/icons';
+// @import 'utils/helper';
+// @import 'utils/loader';
+
+/* 
+  Public Classes
+  bisa digunakan untuk disemua page/components di website ini
+*/
+// @import 'utils/classes';
+// Components
+@import "variables";
+@import "general";
+@import "icons";
+@import "menu";
+@import "components";
+@import "helper";
+@import "loader";
+@import "hero";
+@import "service";
+@import "features";
+@import "pricing";
+@import "team";
+@import "contact";
+@import "footer";
