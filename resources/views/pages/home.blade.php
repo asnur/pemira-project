@@ -3,7 +3,7 @@
 @section('content')
 
   @include('../partials/hero')
-  
+
   {{-- <section class="hero d-grid aligns-items-center bg-center nf-bg-primary pt-5 position-relative" style="background-image: url('{{ asset('images/hero-1-bg.png') }}')">
     <div class="container d-grid aligns-items-center">
       <div class="row align-items-center">
@@ -19,20 +19,20 @@
           </div>
         </header>
         <picture class="col-lg-6 d-grid justify-content-center">
-          <img 
+          <img
             class="logo-primary"
-            src="{{ asset('images/logo.png') }}" 
+            src="{{ asset('images/logo.png') }}"
             alt=""
           />
         </picture>
       </div>
     </div>
     <div class="position-absolute bottom-0 w-100 border">
-      <img 
+      <img
         class="w-100"
-        src="{{ asset('images/hero-1-bottom-shape.png') }}" 
+        src="{{ asset('images/hero-1-bottom-shape.png') }}"
         alt=""
-      />    
+      />
     </div>
   </section>
 
