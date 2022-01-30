@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
-<<<<<<< HEAD
   <!---  @START__Hero -->
   <section 	
     id="home"
@@ -30,7 +28,6 @@
               <span class="">Apa itu pemira ?</span>
             </a>
           </div>
-<<<<<<< HEAD
         </div>
         <div data-aos="fade-down" class="blu col-lg-6 col-sm-10 mx-auto ms-lg-auto me-lg-0">
           <div class="mt-lg-0 mt-4">
