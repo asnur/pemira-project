@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class RegisFromNimController extends Controller
@@ -18,6 +19,17 @@ class RegisFromNimController extends Controller
             'data' => '',
             'message' => ''
         ];
+    }
+
+    private function generateRandomString($length = 10)
+    {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
     }
 
     public function check(Request $request)
@@ -60,15 +72,39 @@ class RegisFromNimController extends Controller
     public function regis(Request $request)
     {
         if ($request->input('nim') && $request->input('email')) {
-            User::where('nim', $request->input('nim'))->update('email', $request->input('email'));
-            $this->response['status'] = 'Success';
-            $this->response['message'] = 'Email has Update for NIM' . $request->input('nim');
-            return response($this->response, 200);
+            $validate_email = strtolower(substr($request->input('email'), -24));
+            $data = User::where('email', $request->input('email'))->first();
+            if ($validate_email !== 'student.nurulfikri.ac.id') {
+                $this->response['status'] = 'Failed';
+                $this->response['message'] = 'Email must use student.nurulfikri.ac.id';
+                return response($this->response, 404);
+            }
+            if ($data) {
+                $this->response['status'] = 'Success';
+                $this->response['message'] = 'Email has Already Use Or Register';
+                return response($this->response, 200);
+            } else {
+                User::where('nim', $request->input('nim'))->update(['email' => $request->input('email'), 'status' => 1]);
+                $this->response['status'] = 'Success';
+                $this->response['message'] = 'Email has Update for NIM ' . $request->input('nim');
+                return response($this->response, 200);
+            }
         } else {
             $this->response['status'] = 'Failed';
             $this->response['data'] = 'Not Found';
             $this->response['message'] = 'Nim and Email is Required';
             return response($this->response, 404);
         }
+    }
+
+    public function countRegis()
+    {
+        $regis = DB::select('SELECT COUNT(status) AS jumlah, tahun FROM users WHERE status=1 GROUP BY tahun');
+        $no_regis = DB::select('SELECT COUNT(status) AS jumlah, tahun FROM users WHERE status=0 GROUP BY tahun');
+
+        $this->response['status'] = 'Success';
+        $this->response['data'] = ['regis' => $regis, 'no_regis' => $no_regis];
+        $this->response['message'] = 'All Data Registered';
+        return response($this->response, 200);
     }
 }
