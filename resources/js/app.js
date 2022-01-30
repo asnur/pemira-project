@@ -17,6 +17,8 @@ import AOS from 'aos/dist/aos';
 import 'aos/dist/aos.css';
 AOS.init();
 
+import axios from 'axios';
+
 // import { Chart } from 'chart.js';
 
 // //  Window scroll sticky class add

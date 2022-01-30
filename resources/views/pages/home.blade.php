@@ -137,54 +137,103 @@
   </section>
   <!---- @END__Tata_Cara_Pemilihan --->
 
-  <section class="section bg-light" id="features">
+
+  <!---- @START__Daftar_Mahasiswa_Teregistrasi --->
+  <section class="section bg-white" id="features">
     <div class="container">
       <div data-aos="fade-down" class="row align-items-center mb-5">
         <div class="col-md-12 ms-md-auto order-1 order-md-2">
-          <div id="live-pemilih" ></div>
+          <div class="container">
+            <canvas id="chartRegisterUsers"></canvas>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-
-  <div class="container">
-    <canvas id="myChart"></canvas>
-  </div>
-
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.25.0/axios.min.js" integrity="sha512-/Q6t3CASm04EliI1QyIDAA/nDo9R8FQ/BULoUFyN4n/BDdyIxeH7u++Z+eobdmr11gG5D/6nPFyDlnisDwhpYA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
-    const labels = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-    ];
-  
-    const data = {
-      labels: labels,
-      datasets: [{
-        label: 'My First dataset',
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgb(255, 99, 132)',
-        data: [0, 10, 5, 2, 20, 30, 45],
-      }]
-    };
-  
-    const config = {
-      type: 'line',
-      data: data,
-      options: {}
-    };
-  </script>
+    axios.get('/api/countRegis').then((response) => {
+      const registeredUsers = response.data.data.regis;
+      const users2018 = registeredUsers[0];
+      const users2019 = registeredUsers[1];
+      const users2020 = registeredUsers[2];
+      const users2021 = registeredUsers[3];
 
-  <script>
-    const myChart = new Chart(
-      document.getElementById('myChart'),
-      config
-    );
+      const labels = [ 
+        users2018.tahun,
+        users2019.tahun,
+        users2020.tahun,
+        users2021.tahun,
+      ];
+
+      const data = {
+        labels: labels,
+        datasets: [{
+          label: 'My First dataset',
+          backgroundColor: 'rgb(255, 99, 132)',
+          borderColor: 'rgb(255, 99, 132)',
+          data: [
+            users2018.jumlah, 
+            users2019.jumlah, 
+            users2020.jumlah, 
+            users2021.jumlah,
+          ],
+        }],
+      };
+    
+      const config = {
+        type: 'bar',
+        data: data,
+        options: {}
+      };
+
+      const chartRegisterUsers = new Chart(
+        document.getElementById('chartRegisterUsers'),
+        config,
+      );
+    });
   </script>
+  <!---- @END__Daftar_Mahasiswa_Teregistrasi --->
+
+  
+  <!---- @START__Syarat_dan_Ketentuan--->
+  <section class="section bg-light" id="features">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-7 text-center">
+          <h2 class="fw-bold">Syarat Dan Ketentuan</h2>
+          <p class="text-muted">Syarat & Ketentuan Ini Harus dibaca bersamaan dengan Kebijakan Privasi.</p>
+        </div>
+      </div>
+
+      <div data-aos="fade-down" class="row align-items-center mb-5">
+        <div class="col-md-5 order-2 order-md-1 mt-md-0 mt-5">
+          <p class="text-muted mb-5">
+            <ul>
+              <li>Pemilihan Pasangan calon Ketua & Wakil BEM dilaksanakan secara LANGSUNG & TIDAK BOLEH DIWAKILKAN dengan mengedepankan prinsip-prinsip Rahasia, Umum, Bebas, jujur dan adil.</li>
+              <li>Pemilih Merupakan mahasiswa aktif STT Terpadu Nurul FIkri Yang Telah Melakukan Registrasi Ulang pada waktu yang telah ditetapkan.</li>
+              <li>Pemungutan Suara Secara Daring pada Web E-Pemira Dilakukan Pada Tanggal 13 Februari 2021 Pukul 07.00 Sampai Pukul 20.00</li>
+              <li>Voting Akan ditutup pada tanggal 13 Februari 2021 pada pukul 21.00</li>
+              <li>Pemilihan ini hanya dilakukan satu kali dan tidak dapat melakukan pemilihan ulang.</li>
+              <li>Kandidat terpilih ditetapkan berdasarkan suara terbanyak hasil pemilihan.</li>
+            </ul>
+          </p>
+        </div>
+
+        <div class="col-md-6 ms-md-auto order-1 order-md-2">
+          <div class="position-relative">
+            <div class="ms-5 features-img">
+              <img src="{{ asset('/images/features-1.png') }}" alt="" class="img-fluid d-block mx-auto rounded" />
+            </div>
+            <img src="{{ asset('/images/dot-img.png') }}" alt="" class="dot-img-left" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  @END_Syarat_dan_Ketentuan
+
 @endsection
 
