@@ -1,8 +1,8 @@
 /* Template Name: Qexal - Responsive Bootstrap 4 Landing Page Template
-   Author: Themesbrand
-   Version: 1.0.0
-   Created: Jan 2019
-   File Description: Main js file
+    Author: Themesbrand
+    Version: 1.0.0
+    Created: Jan 2019
+    File Description: Main js file
 */
 import '../css/bootstrap.min.css';
 // import '../css/materialdesignicons.min.css';
@@ -11,6 +11,13 @@ import './jquery.min'
 // import '../css/materialdesignicons.min.css';
 import feather from './feather.min';
 import SmoothScroll from './smooth-scroll.polyfills.min';
+
+// AOS
+import AOS from 'aos/dist/aos';
+import 'aos/dist/aos.css';
+AOS.init();
+
+// import { Chart } from 'chart.js';
 
 // //  Window scroll sticky class add
 function windowScroll() {
