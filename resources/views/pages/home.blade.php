@@ -2,6 +2,7 @@
 
 @section('content')
 
+<<<<<<< HEAD
   <!---  @START__Hero -->
   <section 	
     id="home"
@@ -14,6 +15,17 @@
         <div class="col-lg-5">
           <h1 class="text-white display-4 font-weight-semibold mb-4 hero-1-title">
             E-PEMIRA STTNF 2020-2021
+=======
+  @include('../partials/hero')
+
+  {{-- <section class="hero d-grid aligns-items-center bg-center nf-bg-primary pt-5 position-relative" style="background-image: url('{{ asset('images/hero-1-bg.png') }}')">
+    <div class="container d-grid aligns-items-center">
+      <div class="row align-items-center">
+        <header class="col-lg-6 d-grid justify-content-center">
+          <h1 class="text-white">
+            E-PEMIRA <br>
+            STTNF 2021-2022
+>>>>>>> 820aea329b0b2790f7c040ab162e27e8134a99ac
           </h1>
           <p class="text-white-70 mb-4 mb-lg-5">
             Pemilihan raya Online STT Terpadu Nurul Fikri 2020-2021
@@ -29,6 +41,7 @@
               <span class="">Apa itu pemira ?</span>
             </a>
           </div>
+<<<<<<< HEAD
         </div>
         <div data-aos="fade-down" class="blu col-lg-6 col-sm-10 mx-auto ms-lg-auto me-lg-0">
           <div class="mt-lg-0 mt-4">
@@ -189,3 +202,35 @@
     );
   </script>
 @endsection
+=======
+        </header>
+        <picture class="col-lg-6 d-grid justify-content-center">
+          <img
+            class="logo-primary"
+            src="{{ asset('images/logo.png') }}"
+            alt=""
+          />
+        </picture>
+      </div>
+    </div>
+    <div class="position-absolute bottom-0 w-100 border">
+      <img
+        class="w-100"
+        src="{{ asset('images/hero-1-bottom-shape.png') }}"
+        alt=""
+      />
+    </div>
+  </section>
+
+  <div data-aos="fade-down">
+    <div class="card" style="width: 18rem;">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div> --}}
+@endsection
+>>>>>>> 820aea329b0b2790f7c040ab162e27e8134a99ac
