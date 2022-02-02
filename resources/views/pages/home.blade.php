@@ -72,6 +72,7 @@
       />
     </div> 
     <!-- @END__Hero__Shape -->
+
   </section>
   <!---- @END__Hero -->
 
@@ -161,18 +162,22 @@
       const users2020 = registeredUsers[2];
       const users2021 = registeredUsers[3];
 
-      const labels = [ 
-        users2018.tahun,
-        users2019.tahun,
-        users2020.tahun,
-        users2021.tahun,
-      ];
 
       const data = {
-        labels: labels,
+        labels: [ 
+          users2018.tahun,
+          users2019.tahun,
+          users2020.tahun,
+          users2021.tahun,
+        ],
         datasets: [{
           label: 'My First dataset',
-          backgroundColor: 'rgb(255, 99, 132)',
+          backgroundColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+          ],
           borderColor: 'rgb(255, 99, 132)',
           data: [
             users2018.jumlah, 
@@ -182,11 +187,49 @@
           ],
         }],
       };
-    
+      
+
+      // INI YANG ASLI BIKIN BINGUNG, LAGI NGOPREK INI SI NANTI MAU DILANJUTIN
       const config = {
         type: 'bar',
-        data: data,
-        options: {}
+        data: {
+          labels: [
+            users2018.tahun,
+            users2019.tahun,
+            users2020.tahun,
+            users2021.tahun,
+          ],
+          datasets: [
+            {
+              label: 'Mahasiswa Angkatan 2018',
+              backgroundColor: 'rgba(255, 99, 132, 1)',
+              data: [users2018.jumlah],
+            },
+            {
+              label: 'Mahasiswa Angkatan 2019',
+              backgroundColor: 'rgba(54, 162, 235, 1)',
+              data: [users2019.jumlah],
+            },
+            {
+              label: 'Mahasiswa Angkatan 2020',
+              backgroundColor: 'rgba(255, 206, 86, 1)',
+              data: [users2020.jumlah],
+            },
+            {
+              label: 'Mahasiswa Angakatan 2021',
+              backgroundColor: 'rgba(75, 192, 192, 1)',
+              data: [users2021.jumlah],
+            }
+          ],
+        },
+        options: {
+          plugins: {
+            title: {
+              display: true,
+              text: 'Data Mahasiswa yang Melakukan Registrasi'
+            }
+          }
+        }
       };
 
       const chartRegisterUsers = new Chart(
@@ -233,7 +276,7 @@
       </div>
     </div>
   </section>
-  @END_Syarat_dan_Ketentuan
+  <!---- @END__Syarat_dan_Ketentuan ---->
 
 @endsection
 
