@@ -53,7 +53,7 @@
             <div class="ratio ratio-16x9">
                 <video style="width: 100%" controls>
                   <source src="{{ asset('assets/pemira.mp4') }}" type="video/mp4">
-                    Your browser does not support the video tag.
+                  <span>Your browser does not support the video tag.</span>
                 </video>
             </div>
           </div>
@@ -152,97 +152,76 @@
     </div>
   </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.25.0/axios.min.js" integrity="sha512-/Q6t3CASm04EliI1QyIDAA/nDo9R8FQ/BULoUFyN4n/BDdyIxeH7u++Z+eobdmr11gG5D/6nPFyDlnisDwhpYA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script>
-    axios.get('/api/countRegis').then((response) => {
-      const registeredUsers = response.data.data.regis;
-      const users2018 = registeredUsers[0];
-      const users2019 = registeredUsers[1];
-      const users2020 = registeredUsers[2];
-      const users2021 = registeredUsers[3];
+  @push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.25.0/axios.min.js" integrity="sha512-/Q6t3CASm04EliI1QyIDAA/nDo9R8FQ/BULoUFyN4n/BDdyIxeH7u++Z+eobdmr11gG5D/6nPFyDlnisDwhpYA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+      axios.get('/api/countRegis').then((response) => {
+        // index untuk angkatan
+        const users2018 = 0;
+        const users2019 = 1;
+        const users2020 = 2;
+        const users2021 = 3;
+        console.log(response)
+        const registeredUsers = response.data.data.regis;
+        const unregisteredUsers = response.data.data.no_regis;
 
-
-      const data = {
-        labels: [ 
-          users2018.tahun,
-          users2019.tahun,
-          users2020.tahun,
-          users2021.tahun,
-        ],
-        datasets: [{
-          label: 'My First dataset',
-          backgroundColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-          ],
-          borderColor: 'rgb(255, 99, 132)',
-          data: [
-            users2018.jumlah, 
-            users2019.jumlah, 
-            users2020.jumlah, 
-            users2021.jumlah,
-          ],
-        }],
-      };
-      
-
-      // INI YANG ASLI BIKIN BINGUNG, LAGI NGOPREK INI SI NANTI MAU DILANJUTIN
-      const config = {
-        type: 'bar',
-        data: {
-          labels: [
-            users2018.tahun,
-            users2019.tahun,
-            users2020.tahun,
-            users2021.tahun,
-          ],
-          datasets: [
-            {
-              label: 'Mahasiswa Angkatan 2018',
-              backgroundColor: 'rgba(255, 99, 132, 1)',
-              data: [users2018.jumlah],
-            },
-            {
-              label: 'Mahasiswa Angkatan 2019',
-              backgroundColor: 'rgba(54, 162, 235, 1)',
-              data: [users2019.jumlah],
-            },
-            {
-              label: 'Mahasiswa Angkatan 2020',
-              backgroundColor: 'rgba(255, 206, 86, 1)',
-              data: [users2020.jumlah],
-            },
-            {
-              label: 'Mahasiswa Angakatan 2021',
-              backgroundColor: 'rgba(75, 192, 192, 1)',
-              data: [users2021.jumlah],
-            }
-          ],
-        },
-        options: {
-          plugins: {
-            title: {
-              display: true,
-              text: 'Data Mahasiswa yang Melakukan Registrasi'
+        const config = {
+          type: 'bar',
+          data: {
+            labels: [
+              registeredUsers[users2018].tahun,
+              registeredUsers[users2019].tahun,
+              registeredUsers[users2020].tahun,
+              registeredUsers[users2021].tahun,
+            ],
+            datasets: [
+              {
+                label: 'Telah Teregistrasi',
+                backgroundColor: [
+                  'rgba(54, 162, 235, 1)', 
+                ],
+                data: [
+                  registeredUsers[users2018].jumlah || 0, 
+                  registeredUsers[users2019].jumlah || 0, 
+                  registeredUsers[users2020].jumlah || 0, 
+                  registeredUsers[users2021].jumlah || 0,
+                ],
+              },
+              {
+                label: 'Belum Teregistrasi',
+                backgroundColor: ['rgba(54, 162, 235, 0.5)'],
+                // data: [
+                //   unregisteredUsers[users2018].jumlah || 0,
+                //   unregisteredUsers[users2019].jumlah || 0,
+                //   unregisteredUsers[users2020].jumlah || 0,
+                //   unregisteredUsers[users2021].jumlah || 0,
+                // ],
+              },
+            ],
+          },
+          options: {
+            plugins: {
+              title: {
+                display: true,
+                text: 'Data Mahasiswa yang Melakukan Registrasi'
+              }
             }
           }
-        }
-      };
+        };
 
-      const chartRegisterUsers = new Chart(
-        document.getElementById('chartRegisterUsers'),
-        config,
-      );
-    });
-  </script>
+        const chartRegisterUsers = new Chart(
+          document.getElementById('chartRegisterUsers'),
+          config,
+        );
+      });
+    </script>
+  @endpush
   <!---- @END__Daftar_Mahasiswa_Teregistrasi --->
 
   
   <!---- @START__Syarat_dan_Ketentuan--->
-  <section class="section bg-light" id="features">
+  <section class="section bg-white" id="features">
     <div class="container">
       <div class="row justify-content-center mb-5">
         <div class="col-lg-7 text-center">
@@ -277,6 +256,102 @@
     </div>
   </section>
   <!---- @END__Syarat_dan_Ketentuan ---->
+
+
+  <!---- @START__Get_In_Touch ---->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <h2 class="fw-bold mb-4">Get in Touch</h2>
+          <p class="text-muted mb-5">Ada Pertanyaan lebih lanjut ? bisa hubungi kami di :</p>
+          <div>
+            <form method="post" name="myForm" onsubmit="return validateForm()">
+              <p id="error-msg"></p>
+              <div id="simple-msg"></div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="mb-4">
+                    <label for="name" class="text-muted form-label">Name</label>
+                    <input 
+                      name="name" 
+                      id="name" 
+                      type="text" 
+                      class="form-control"
+                      placeholder="Enter name*"
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-4">
+                    <label for="email" class="text-muted form-label">Email</label>
+                    <input 
+                      name="email" 
+                      id="email" 
+                      type="email" 
+                      class="form-control"
+                      placeholder="Enter email*"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="mb-4">
+                    <label for="subject" class="text-muted form-label">Subject</label>
+                    <input 
+                      type="text" 
+                      class="form-control" 
+                      id="subject" 
+                      name="subject" 
+                      placeholder="Enter Subject.." 
+                    />
+                  </div>
+
+                  <div class="mb-4 pb-2">
+                    <label for="comments" class="text-muted form-label">Message</label>
+                    <textarea 
+                      name="comments" 
+                      id="comments" 
+                      rows="4" 
+                      class="form-control"
+                      placeholder="Enter message..."
+                    >
+                    </textarea>
+                  </div>
+
+                  <button type="submit" id="submit" name="send" class="btn btn-primary">
+                    Send Message
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="col-lg-5 ms-lg-auto">
+          <div class="mt-5 mt-lg-0">
+            <img 
+              src="{{ asset('/images/contact.png') }}" 
+              alt=""
+              class="img-fluid d-block" 
+            />
+            <p class="text-muted mt-5 mb-3">
+              <i class="me-2 text-muted icon icon-xs" data-feather="mail"></i>
+              <span>info@nurulfikri.ac.id</span>
+            </p>
+            <p class="text-muted mb-3">
+              <i class="me-2 text-muted icon icon-xs" data-feather="phone"></i>
+              <a href="https://wa.me/6285382932485">+62 853-8293-2485</a>
+            </p>
+            <p class="text-muted mb-3">
+              <i class="me-2 text-muted icon icon-xs" data-feather="map-pin"></i>
+              <span>Jl. Raya Lenteng Agung No.20, RT.4/RW.1, Srengseng Sawah, Kec. Jagakarsa, Kota Jakarta Selatan, DKI Jakarta 12640</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!---- @END__Get_In_Touch ---->
 
 @endsection
 

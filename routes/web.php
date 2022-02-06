@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VotingController;
 use Illuminate\Support\Facades\Auth;
@@ -21,3 +22,5 @@ Auth::routes();
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/voting', [VotingController::class, 'index']);
+Route::get('/auth/login', [AuthController::class, 'login']);
+Route::get('/auth/register', [AuthController::class, 'register']);

@@ -1,3 +1,9 @@
+<?php
+  function urlContains($contains) {
+    return str_contains(url()->current(), $contains);
+  }
+?>
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -18,16 +24,20 @@
 </head>
 <body class="min-vh-100">
 	<div id="app">
-		@include('../partials/navbar')
+		@if (!urlContains('auth'))
+			@include('../partials/navbar')
+		@endif
 
 		<main>
 			@yield('content')
 		</main>
 
-
-		@include('../partials/footer')
+		@if (!urlContains('auth'))
+			@include('../partials/footer')
+		@endif
 	</div>
 
 	<script src="{{ asset('js/app.js') }}" defer></script>
+	@stack('scripts')
 </body>
 </html>
