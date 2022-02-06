@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Vote;
+use App\Mail\RegisMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class RegisFromNimController extends Controller
 {
@@ -85,7 +87,12 @@ class RegisFromNimController extends Controller
                 $this->response['message'] = 'Email has Already Use Or Register';
                 return response($this->response, 200);
             } else {
-                User::where('nim', $request->input('nim'))->update(['email' => $request->input('email'), 'status' => 1]);
+                $details = [
+                    'nim' => $request->input('nim'),
+                    'password' => $this->generateRandomString()
+                ];
+                Mail::to($request->input('email'))->send(new RegisMail($details));
+                User::where('nim', $request->input('nim'))->update(['email' => $request->input('email'), 'status' => 1, 'password' => Hash::make($details['password'])]);
                 $this->response['status'] = 'Success';
                 $this->response['message'] = 'Email has Update for NIM ' . $request->input('nim');
                 return response($this->response, 200);
