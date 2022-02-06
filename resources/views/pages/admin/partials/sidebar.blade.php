@@ -29,9 +29,9 @@
 
     <!-- Nav Item - Tables -->
     <li class="nav-item @yield('active-users')">
-        <a class="nav-link" href="/admin/users">
+        <a class="nav-link" href="/admin/mahasiswa">
             <i class="fas fa-fw fa-table"></i>
-            <span>Users</span></a>
+            <span>Mahasiswa</span></a>
     </li>
 
     <!-- Divider -->

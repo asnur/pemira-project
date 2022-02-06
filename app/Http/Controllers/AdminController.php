@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Mahasiswa;
 
 class AdminController extends Controller
 {
@@ -15,9 +16,5 @@ class AdminController extends Controller
   {
     return view('pages.admin.voting');
   }
-
-  public function users() 
-  {
-    return view('pages.admin.users');
-  }
+  
 }
