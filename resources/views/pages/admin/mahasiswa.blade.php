@@ -90,18 +90,18 @@
                                 <td>{{ $data_M->thn_masuk }}</td>
                                 <td>                                    
                                     <form action="/admin/mahasiswa/{{ $data_M->id }}" method="POST" onsubmit="return confirm('Apa Anda yakin akan menghapus data Mahasiswa {{ $data_M->nama }} ?')">
-                                        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal">
+                                        <button type="button" class="btn btn-sm btn-warning mb-1" data-bs-toggle="modal" data-bs-target="#editModal">
                                             Edit
                                         </button>
 
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger" name="submit">
+                                        <button type="submit" class="btn btn-sm btn-danger mb-1" name="submit">
                                             Delete
                                         </button>
                                     </form>
                                     
-                                    <!-- Delete Modal -->
+                                    <!-- Edit Modal -->
                                     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
