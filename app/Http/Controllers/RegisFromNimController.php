@@ -77,7 +77,7 @@ class RegisFromNimController extends Controller
         if ($request->input('nim') && $request->input('email')) {
             $validate_email = strtolower($request->input('email'));
             $data = User::where('email', $request->input('email'))->first();
-            if (str_contains($validate_email, 'student.nurulfikri.ac.id') || str_contains($validate_email, 'unf.ac.id')) {
+            if (str_contains($validate_email, 'student.nurulfikri.ac.id') !== true && str_contains($validate_email, 'unf.ac.id') !== true) {
                 $this->response['status'] = 'Failed';
                 $this->response['message'] = 'Email must use student.nurulfikri.ac.id or unf.ac.id';
                 return response($this->response, 404);

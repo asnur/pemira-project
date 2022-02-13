@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Mahasiswa;
+use App\Models\User;
 
 class MahasiswaController extends Controller
 {
@@ -14,7 +15,7 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        $mahasiswa = Mahasiswa::all();
+        $mahasiswa = User::all();
         return view('pages.admin.mahasiswa', compact('mahasiswa'));
     }
 
@@ -98,7 +99,7 @@ class MahasiswaController extends Controller
     {
         $mahasiswa = Mahasiswa::findOrFail($id);
         $mahasiswa->delete();
-    
+
         return redirect('admin/mahasiswa');
     }
 }
