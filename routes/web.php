@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\VotingController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -21,3 +23,6 @@ Auth::routes();
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/voting', [VotingController::class, 'index']);
+Route::get('/admin', [AdminController::class, 'index']);
+Route::resource('/admin/mahasiswa', MahasiswaController::class);
+Route::get('/admin/voting', [AdminController::class, 'voting']);
