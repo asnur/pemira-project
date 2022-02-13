@@ -19,7 +19,6 @@
 
     <!-- Content Row -->
     <div class="row">
-    {{-- @foreach ($mahasiswa as $data) --}}
             
         <!-- Earnings (Monthly) Card Example -->
         <div class="col-xl-3 col-md-6 mb-4">
@@ -50,7 +49,7 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                            <i class="fas fa-user-tie fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -79,7 +78,7 @@
                             </div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                            <i class="fas fa-user-check fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -104,7 +103,6 @@
             </div>
         </div>
     </div>
-    {{-- @endforeach --}}
 
     <!-- Content Row -->
 
