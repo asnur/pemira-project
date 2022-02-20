@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Mahasiswa;
 use App\Models\User;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class MahasiswaController extends Controller
 {
@@ -43,6 +44,8 @@ class MahasiswaController extends Controller
         $mahasiswa->email = $request->email;
         $mahasiswa->tahun = $request->thn_masuk;
         $mahasiswa->save();
+
+        Alert::success('Berhasil', 'Data Mahasiswa ' . $request->nama . ' Berhasil Ditambahkan');
 
         return redirect('admin/mahasiswa');
     }
@@ -98,6 +101,7 @@ class MahasiswaController extends Controller
     public function destroy($id)
     {
         $mahasiswa = User::findOrFail($id);
+        Alert::success('Berhasil', 'Data Mahasiswa ' . $mahasiswa->nama . ' Berhasil DiHapus');
         $mahasiswa->delete();
 
         return redirect('admin/mahasiswa');

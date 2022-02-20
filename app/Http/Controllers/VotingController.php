@@ -6,9 +6,17 @@ use App\Models\Vote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class VotingController extends Controller
 {
+    public function index()
+    {
+        $data = Vote::with(['user', 'kandidat'])->get();
+
+        return view('pages.admin.voting', compact('data'));
+    }
+
     public function vote(Request $request)
     {
         if (Auth::check()) {

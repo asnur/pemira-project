@@ -27,4 +27,5 @@ Route::get('/voting', [VotingController::class, 'index']);
 Route::prefix('/admin')->group(function () {
     Route::get('/', [AdminController::class, 'index']);
     Route::resource('/mahasiswa', MahasiswaController::class);
+    Route::get('/voting', [VotingController::class, 'index']);
 });
