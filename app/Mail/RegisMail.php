@@ -11,6 +11,7 @@ class RegisMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $details;
     /**
      * Create a new message instance.
      *
@@ -28,6 +29,6 @@ class RegisMail extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->subject('Registrasi Pemira Berhasil')->view('email.regis');
     }
 }
