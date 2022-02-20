@@ -1,0 +1,20 @@
+.sidebar-brand-text,
+.nav-link,
+.nav-link i {
+    color: #08679e !important;
+}
+
+#sidebarToggle {
+    background-color: #08679ec5 !important;
+}
+
+.modal-header,
+.modal-footer {
+    background-color: #08679e !important;
+    color: #fff;
+}
+
+.sidebar {
+    filter: drop-shadow(0px 0px 10px #08679e);
+    z-index: 9;
+}

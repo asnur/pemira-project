@@ -75,11 +75,11 @@ class RegisFromNimController extends Controller
     public function regis(Request $request)
     {
         if ($request->input('nim') && $request->input('email')) {
-            $validate_email = strtolower(substr($request->input('email'), -24));
+            $validate_email = strtolower($request->input('email'));
             $data = User::where('email', $request->input('email'))->first();
-            if ($validate_email !== 'student.nurulfikri.ac.id') {
+            if (str_contains($validate_email, 'student.nurulfikri.ac.id') !== true && str_contains($validate_email, 'unf.ac.id') !== true) {
                 $this->response['status'] = 'Failed';
-                $this->response['message'] = 'Email must use student.nurulfikri.ac.id';
+                $this->response['message'] = 'Email must use student.nurulfikri.ac.id or unf.ac.id';
                 return response($this->response, 404);
             }
             if ($data) {
@@ -94,7 +94,7 @@ class RegisFromNimController extends Controller
                 Mail::to($request->input('email'))->send(new RegisMail($details));
                 User::where('nim', $request->input('nim'))->update(['email' => $request->input('email'), 'status' => 1, 'password' => Hash::make($details['password'])]);
                 $this->response['status'] = 'Success';
-                $this->response['message'] = 'Email has Update for NIM ' . $request->input('nim');
+                $this->response['message'] = 'Email Success to Registered';
                 return response($this->response, 200);
             }
         } else {
