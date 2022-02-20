@@ -15,4 +15,9 @@ class AuthController extends Controller
 	{
 		return view('pages.register');
 	}
+
+	public function registerSuccess()
+	{
+		return view('pages.register-success');
+	}
 }

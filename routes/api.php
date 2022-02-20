@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\RegisFromNimController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\VotingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,3 +23,4 @@ Route::post('/regis', [RegisFromNimController::class, 'regis'])->name('regis');
 Route::get('/countRegis', [RegisFromNimController::class, 'countRegis'])->name('count-regis');
 Route::put('/voting', [VotingController::class, 'vote'])->name('voting');
 Route::get('/countVoting', [VotingController::class, 'countVoting'])->name('count-voting');
+Route::get('/allUsers', [UserController::class, 'index'])->name('all-users');
