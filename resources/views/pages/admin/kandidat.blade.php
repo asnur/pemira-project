@@ -11,6 +11,10 @@
     <link href="{{ asset('template/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 @endsection
 
+@php
+$no = 1;
+@endphp
+
 @section('content')
     <!-- Edit Modal -->
     <form action="" id="form-edit" method="POST" enctype="multipart/form-data">
@@ -36,8 +40,9 @@
                         </div>
                         <div class="mb-3">
                             <label for="visi_misi" class="form-label">Visi & Misi</label>
-                            <textarea id="summernote" class="form-control" aria-label="With textarea" name="visi_misi" required></textarea>
-                            
+                            <textarea id="summernote" class="form-control" aria-label="With textarea" name="visi_misi"
+                                required></textarea>
+
                         </div>
                         <div class="mb-3">
                             <label for="image" class="form-label">Foto</label>
@@ -57,11 +62,11 @@
         <div class="modal-lg modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Visi Misi</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title" id="exampleModalLabel">Visi Misi</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                <div id="visi_misiKandidat"></div>
+                    <div id="visi_misiKandidat"></div>
                 </div>
             </div>
         </div>
@@ -74,57 +79,59 @@
         {{-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
             For more information about DataTables, please visit the <a target="_blank"
                 href="https://datatables.net">official DataTables documentation</a>.</p> --}}
-        <div class="row">
-        @forelse ($kandidat as $data_K)
-        <div class="col-xl-6">
-            <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div
-                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Kandidat {{ $data_K->id }}</h6>
-                    <div class="dropdown no-arrow">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                            aria-labelledby="dropdownMenuLink">
-                            <div class="dropdown-header">Action:</div>
-                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editKandidat"
-                            onclick="editKandidat({{ $data_K->id }}, '{{ $data_K->nim }}', '{{ $data_K->nama }}', '{{ $data_K->visi_misi }}')">Edit</a>
-                            {{-- <div class="dropdown-divider"></div>
+        <div class="row mt-4">
+            @forelse ($kandidat as $data_K)
+                <div class="col-xl-6">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Kandidat {{ $no++ }}</h6>
+                            <div class="dropdown no-arrow">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                    aria-labelledby="dropdownMenuLink">
+                                    <div class="dropdown-header">Action:</div>
+                                    <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editKandidat"
+                                        onclick="editKandidat({{ $data_K->id }}, '{{ $data_K->nim }}', '{{ $data_K->nama }}', '{{ $data_K->visi_misi }}')">Edit</a>
+                                    {{-- <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Something else here</a> --}}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div class="pt-4 pb-2 d-flex flex-row align-items-center justify-content-center">
+                                <img class="img-fluid" style="width:250px;height:300px;object-fit:cover;"
+                                    src="{{ $data_K->image == null ? 'https://dummyimage.com/250x300/000/fff' : '/images/kandidat/' . $data_K->image }}"
+                                    alt="">
+                            </div>
+                            <div class="d-flex flex-row align-items-center justify-content-center">
+                                <h3>{{ $data_K->nama }}</h3>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="mt-4 text-center small">
+                                <span class="">
+                                    <!-- Button trigger modal -->
+                                    <form action="" id="modal-kandidat">
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal" onclick="visiMisi('{!! $data_K->visi_misi !!}')">
+                                            Visi & Misi
+                                        </button>
+                                    </form>
+
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                    <div class="pt-4 pb-2 d-flex flex-row align-items-center justify-content-center">
-                        <img class="img-fluid" style="width:250px;height:300px;object-fit:cover;" src="{{ $data_K->image == null ? 'https://dummyimage.com/250x300/000/fff' : '/images/kandidat/'.$data_K->image  }}" alt="">
-                    </div>
-                    <div class="d-flex flex-row align-items-center justify-content-center">
-                        <h3>{{ $data_K->nama }}</h3>
-                    </div>
-                    <div class="dropdown-divider"></div>
-                    <div class="mt-4 text-center small">
-                        <span class="">
-                            <!-- Button trigger modal -->
-                            <form action="" id="modal-kandidat">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="visiMisi('{!! $data_K->visi_misi !!}')">
-                                    Visi & Misi
-                                </button>    
-                            </form>
-                            
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        @empty
-            <tr>
-                <td>no data</td>
-            </tr>
-        @endforelse    
+            @empty
+                <tr>
+                    <td>no data</td>
+                </tr>
+            @endforelse
         </div>
     </div>
 @endsection
@@ -144,7 +151,8 @@
             $("#form-edit").attr('action', '/admin/kandidat/' + id);
             $("#nim-kandidat").val(nim);
             $("#nama-kandidat").val(name);
-            $("#visi_misi-kandidat").val(visi_misi);
+            // $("#visi_misi-kandidat").val(visi_misi);
+            $('#summernote').summernote('code', visi_misi);
         }
         // $(document).ready(function() {
         //     $('#summernote').summernote({
