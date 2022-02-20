@@ -1,282 +1,518 @@
 @extends('layouts.app')
-
 @section('content')
-  <!---  @START__Hero -->
-  <section 	
-    id="home"
-    class="hero-1 bg-center bg-primary position-relative" 
-    style="background-image: url('{{ asset('/images/hero-1-bg.png') }}');"
-  >
-    <!---- @START__Hero__Container --->
-    <div class="container">
-      <div class="row align-items-center hero-content">
-        <div class="col-lg-5">
-          <h1 class="text-white display-4 font-weight-semibold mb-4 hero-1-title">
-            E-PEMIRA STTNF 2020-2021
-          </h1>
-          <p class="text-white-70 mb-4 mb-lg-5">
-            Pemilihan raya Online STT Terpadu Nurul Fikri 2020-2021
+  <!-- @START__HERO -->
+  <div class="w-100 jumbutron">
+    <div class="container jumbutron-content">
+      <div class="row">
+        <div class="col-md-8">
+          <h1 class="fs-1">Selamat Datang di Website Pemira</h1>
+          <p class="fs-5 mt-4">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime,
+            minus rem ullam ea nulla veritatis! Et error officiis, cum hic
+            dignissimos reiciendis quas doloremque voluptates labore harum
+            obcaecati consequatur doloribus.
           </p>
-          <a href="#" class="btn btn-lg btn-light rounded-pill me-2">
-            Mulai Voting
+          <a
+            class="btn btn-lg border-2 rounded-pill fw-bold text-white"
+            style="background: #08679e;"
+            href="#"
+          >
+            <i class="fa-solid fa-book"></i> Registrasi Ulang
           </a>
-          <div class="d-inline-block magic-hover magic-hover__square " data-bs-toggle="modal" data-bs-target="#watchvideomodal">
-            <a href="javascript: void(0);" class="video-play-icon text-white">
-              <span class="play-icon-circle me-2">
-                <i class="icon-sm icon" data-feather="play"></i>
-              </span>
-              <span class="">Apa itu pemira ?</span>
-            </a>
-          </div>
+          <a
+            class="btn btn-lg border mx-3 border-2 rounded-pill fw-bold text-color"
+            href="#"
+          >
+            <i class="fa-solid fa-play"></i> Apa Itu Pemira?
+          </a>
         </div>
-        <div data-aos="fade-down" class="blu col-lg-6 col-sm-10 mx-auto ms-lg-auto me-lg-0">
-          <div class="mt-lg-0 mt-4">
-            <img 
-              src="{{ asset('/images/logo.png') }}" 
-              style="width: 100%" 
-              alt="" 
-              class="img-md-responsive" 
-            />
-          </div>
-        </div>
-      </div>
-
-      <!-- @START__Hero__Modal -->
-      <div class="modal fade bd-example-modal-lg" id="watchvideomodal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog modal-lg">
-          <div class="modal-content home-modal">
-            <div class="modal-header border-0">
-              <button type="button" class="btn-close float-end" data-bs-dismiss="modal">
-                <i class="mdi mdi-close"></i>
-              </button>
-            </div>
-            <div class="ratio ratio-16x9">
-                <video style="width: 100%" controls>
-                  <source src="{{ asset('assets/pemira.mp4') }}" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-          </div>
-        </div>
-      </div> 
-      <!-- @END__Hero__Modal -->
-    </div> 
-    <!-- @END__Hero__Container -->
-
-    <!-- @START__Hero__Shape -->
-    <div class="hero-bottom-shape">
-      <img 
-        src="{{ asset('/images/hero-1-bottom-shape.png') }}" 
-        alt="" 
-        class="img-fluid d-block mx-auto" 
-      />
-    </div> 
-    <!-- @END__Hero__Shape -->
-
-  </section>
-  <!---- @END__Hero -->
-
-
-  <!-- @START__Tata_Cara_Pemilihan -->
-  <section class="section container" id="services">
-    <div class="row justify-content-center mb-5">
-      <div class="col-lg-7 text-center">
-        <h2 class="fw-bold">Tata Cara Pemilihan</h2>
-        <p class="text-muted">Tata Cara Pemilihan Harap dibaca dengan seksama.</p>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-3">
-        <div class="service-box text-center px-4 py-5 position-relative mb-4">
-          <div data-aos="fade-down" class="service-box-content p-4">
-            <div class="icon-mono service-icon avatar-md mx-auto mb-4">
-              <i class="" data-feather="log-in"></i>
-            </div>
-            <h4 class="mb-3 font-size-22">Registrasi Ulang</h4>
-            <p class="text-muted mb-0">Registrasi Ulang untuk mengaktifkan akun</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3">
-        <div class="service-box text-center px-4 py-5 position-relative mb-4">
-          <div data-aos="fade-down" class="service-box-content p-4">
-            <div class="icon-mono service-icon avatar-md mx-auto mb-4">
-              <i class="" data-feather="log-in"></i>
-            </div>
-            <h4 class="mb-3 font-size-22">Login</h4>
-            <p class="text-muted mb-0">Login menggunakan akun yang sudah diberikan via email</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3">
-        <div class="service-box text-center px-4 py-5 position-relative mb-4">
-          <div data-aos="fade-down" class="service-box-content p-4">
-            <div class="icon-mono service-icon avatar-md mx-auto mb-4">
-              <i class="" data-feather="user-check"></i>
-            </div>
-            <h4 class="mb-3 font-size-22">Memilih Kandidat</h4>
-            <p class="text-muted mb-0">Pilih kandidat yang ingin anda pilih.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3">
-        <div class="service-box text-center px-4 py-5 position-relative mb-4">
-          <div data-aos="fade-down" class="service-box-content p-4">
-            <div class="icon-mono service-icon avatar-md mx-auto mb-4">
-              <i class="" data-feather="server"></i>
-            </div>
-            <h4 class="mb-3 font-size-22">Terima Bukti Pemilihan</h4>
-            <p class="text-muted mb-0">Kamu akan dikirimkan email bukti kamu telah memilih kandidat.</p>
-          </div>
+        <div class="col-md-4">
+          <img src="{{ asset('/img/image-header.png') }}" class="w-100" />
         </div>
       </div>
     </div>
-  </section>
-  <!---- @END__Tata_Cara_Pemilihan --->
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="wave-header"
+      viewBox="0 0 1440 320"
+    >
+      <path
+        fill="#08679e"
+        fill-opacity="1"
+        d="M0,192L40,165.3C80,139,160,85,240,101.3C320,117,400,203,480,213.3C560,224,640,160,720,144C800,128,880,160,960,176C1040,192,1120,192,1200,197.3C1280,203,1360,213,1400,218.7L1440,224L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"
+      ></path>
+    </svg>
+    <div class="countdown">
+      <span class="fs-1 rounded-pill p-3 px-5" id="demo"></span><br /><br />
+      <span class="fs-1 text-center w-100 mt-4 text-white"
+        ><i class="fa fa-paper-plane"></i> Menuju Pemira</span
+      >
+    </div>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="wave-header"
+      viewBox="0 0 1440 320"
+    >
+      <path
+        fill="#08679e"
+        fill-opacity="1"
+        d="M0,192L40,165.3C80,139,160,85,240,101.3C320,117,400,203,480,213.3C560,224,640,160,720,144C800,128,880,160,960,176C1040,192,1120,192,1200,197.3C1280,203,1360,213,1400,218.7L1440,224L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"
+      ></path>
+    </svg>
+  </div>
+  @push('scripts')
+    <script>
+      // Set the date we're counting down to
+      let countDownDate = new Date("Mar 16, 2022 00:00:00").getTime();
+
+      // Update the count down every 1 second
+      let x = setInterval(function () {
+        // Get today's date and time
+        let now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        let distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Output the result in an element with id="demo"
+        document.getElementById("demo").innerHTML =
+          days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+        // If the count down is over, write some text
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("demo").innerHTML = "EXPIRED";
+        }
+      }, 1000);
+    </script>
+  @endpush
+  <!-- @END__HERO -->
 
 
-  <!---- @START__Daftar_Mahasiswa_Teregistrasi --->
+  <!-- @START__LANGKAH_LANGKAH_VOTING -->
+  <div class="guide mb-5" id="guide">
+    <div class="container">
+      <h1 class="fw-bold text-color mt-5 mb-5 text-center">Langkah Langkah Voting</h1>
+      <div class="row align-items-center justify-content-center">
+        <div class="col-lg-2 text-center step d-flex align-items-center p-0">
+          <div class="card step-guide h-100 border-0">
+            <div class="card-body p-0">
+              <img src="{{ asset('/img/Mobile login-pana.png') }}" class="img-guide  w-100"  />
+              <h4 class="text-color mt-2 fw-bold">Daftar Ulang</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-1 d-flex align-items-center">
+          <div class="foot-path"></div>
+        </div>
+        <div class="col-lg-2 text-center step d-flex align-items-center p-0">
+          <div class="card step-guide border-0">
+            <div class="card-body p-0">
+              <img
+                src="{{ asset('/img/Reset password-bro.png') }}"
+                class="img-guide w-100"
+              />
+              <h4 class="text-color mt-2 fw-bold">Login</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-1 d-flex align-items-center">
+          <div class="foot-path"></div>
+        </div>
+        <div class="col-lg-2 text-center step d-flex align-items-center p-0">
+          <div class="card step-guide border-0">
+            <div class="card-body p-0">
+              <img src="{{ asset('/img/Voting-bro.png') }}" class="img-guide w-100" />
+              <h4 class="text-color mt-2 fw-bold">Voting</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-1 d-flex align-items-center">
+          <div class="foot-path"></div>
+        </div>
+        <div class="col-lg-2 text-center step p-0 d-flex align-items-center">
+          <div class="card step-guide border-0">
+            <div class="card-body p-0">
+              <img src="{{ asset('/img/Done-pana.png') }}" class="img-guide w-100" />
+              <h4 class="text-color mt-2 fw-bold">Selesai</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- @END__LANGKAH_LANGKAH_VOTING -->
+
+  <hr class="container" />
+  <br />
+  <br />
+  <br />
+
   <section class="section bg-white" id="features">
     <div class="container">
-      <div data-aos="fade-down" class="row align-items-center mb-5">
-        <div class="col-md-12 ms-md-auto order-1 order-md-2">
-          <div class="container">
-            <canvas id="chartRegisterUsers"></canvas>
+      <div class="row">
+  <!---- @START__DAFTAR_MAHASISWA_TEREGISTRASI_ATAU_TIDAK --->
+        <div class="col-lg-8">
+          <div data-aos="fade-down" class="d-flex justfiy-content-center align-items-center">
+              <canvas id="chartRegisterUsers" role="img" aria-label="data mahasiswa sudah teregistrasi dan tidak" ></canvas>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.25.0/axios.min.js" integrity="sha512-/Q6t3CASm04EliI1QyIDAA/nDo9R8FQ/BULoUFyN4n/BDdyIxeH7u++Z+eobdmr11gG5D/6nPFyDlnisDwhpYA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script>
-    axios.get('/api/countRegis').then((response) => {
-      const registeredUsers = response.data.data.regis;
-      const users2018 = registeredUsers[0];
-      const users2019 = registeredUsers[1];
-      const users2020 = registeredUsers[2];
-      const users2021 = registeredUsers[3];
-
-
-      const data = {
-        labels: [ 
-          users2018.tahun,
-          users2019.tahun,
-          users2020.tahun,
-          users2021.tahun,
-        ],
-        datasets: [{
-          label: 'My First dataset',
-          backgroundColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-          ],
-          borderColor: 'rgb(255, 99, 132)',
-          data: [
-            users2018.jumlah, 
-            users2019.jumlah, 
-            users2020.jumlah, 
-            users2021.jumlah,
-          ],
-        }],
-      };
+        @push('scripts')
+          <script>
+            axios.get('/api/countRegis').then((response) => {
+              // index untuk angkatan
+              const users2018 = 0;
+              const users2019 = 1;
+              const users2020 = 2;
+              const users2021 = 3;
+              
+              console.log({ countRegis: response });
       
+              const registeredUsers = response.data.data.regis;
+              const unregisteredUsers = response.data.data.no_regis;
+      
+              console.log({ registeredUsers })
+      
+              // untuk cek apakah value user tahun === index user tahun dan jika salah beri default value 0
+              const validateRegisteredUserYear = (year, index) => {
+                if (registeredUsers[index] === undefined) { return 0; }
+                if (registeredUsers[index].tahun === year) { return registeredUsers[index].jumlah; }
+              };
+      
+              const chartRegisterUsers = new Chart(document.getElementById('chartRegisterUsers'), {
+                type: 'bar',
+                data: {
+                  labels: [
+                    2018, 2019, 2020, 2021
+                  ],
+                  datasets: [
+                    {
+                      label: 'Telah Teregistrasi',
+                      backgroundColor: [
+                        'rgba(54, 162, 235, 1)', 
+                      ],
+                      data: [
+                        validateRegisteredUserYear(2018, users2018),
+                        validateRegisteredUserYear(2019, users2019),
+                        validateRegisteredUserYear(2020, users2020),
+                        validateRegisteredUserYear(2021, users2021),
+                      ],
+                    },
+                    {
+                      label: 'Belum Teregistrasi',
+                      backgroundColor: ['rgba(54, 162, 235, 0.5)'],
+                      data: [
+                        unregisteredUsers[users2018].jumlah,
+                        unregisteredUsers[users2019].jumlah,
+                        unregisteredUsers[users2020].jumlah,
+                        unregisteredUsers[users2021].jumlah,
+                      ],
+                    },
+                  ],
+                },
+                options: {
+                  plugins: {
+                    title: {
+                      display: true,
+                      text: 'Data Mahasiswa yang Melakukan Registrasi'
+                    }
+                  }
+                }
+              });
+            });
+          </script>
+        @endpush
+  <!---- @END__DAFTAR_MAHASISWA_TEREGISTRASI_ATAU_TIDAK --->
+        
+  <!---- @START__LIVE_COUNTING --->
+        <div class="col-lg-4">
+          <div data-aos="fade-down" class="d-flex justify-content-center align-items-center mb-5">
+            <canvas id="chartVotingSementara" aria-label="chart voting sementara"></canvas>
+          </div>
+        </div>
 
-      // INI YANG ASLI BIKIN BINGUNG, LAGI NGOPREK INI SI NANTI MAU DILANJUTIN
-      const config = {
-        type: 'bar',
-        data: {
-          labels: [
-            users2018.tahun,
-            users2019.tahun,
-            users2020.tahun,
-            users2021.tahun,
-          ],
-          datasets: [
-            {
-              label: 'Mahasiswa Angkatan 2018',
-              backgroundColor: 'rgba(255, 99, 132, 1)',
-              data: [users2018.jumlah],
-            },
-            {
-              label: 'Mahasiswa Angkatan 2019',
-              backgroundColor: 'rgba(54, 162, 235, 1)',
-              data: [users2019.jumlah],
-            },
-            {
-              label: 'Mahasiswa Angkatan 2020',
-              backgroundColor: 'rgba(255, 206, 86, 1)',
-              data: [users2020.jumlah],
-            },
-            {
-              label: 'Mahasiswa Angakatan 2021',
-              backgroundColor: 'rgba(75, 192, 192, 1)',
-              data: [users2021.jumlah],
-            }
-          ],
-        },
-        options: {
-          plugins: {
-            title: {
-              display: true,
-              text: 'Data Mahasiswa yang Melakukan Registrasi'
-            }
-          }
+        @push('scripts')
+          <script>
+            axios.get('/api/countVoting').then((response) => {
+              console.log({ countVoting: response.data.data });
+
+              const kandidat = response.data.data;
+
+              const chartVotingSementara = new Chart(document.getElementById('chartVotingSementara'), {
+                type: 'doughnut',
+                data: {
+                  labels: [
+                    'Kandidat 1',
+                    'Kandidat 2',
+                  ],
+                  datasets: [{
+                    label: 'Hasil Vote',
+                    data: [kandidat[0].jumlah_suara, kandidat[1].jumlah_suara],
+                    backgroundColor: [
+                      'rgb(255, 99, 132)',
+                      'rgb(54, 162, 235)',
+                    ],
+                    hoverOffset: 4
+                  }]
+                },
+                options: {
+                  // scales: {
+                  //   yAxes: [{
+                  //     ticks: {
+                  //       fontSize: 40
+                  //     }
+                  //   }]
+                  // },
+                  plugins: {
+                    title: {
+                      display: true,
+                      text: 'Data Mahasiswa yang Melakukan Registrasi'
+                    },
+                  },
+                },
+              });
+              // // kandidat 1
+              // document.querySelector('#hasilVoteKandidat1').textContent = kandidat[0].jumlah_suara;
+
+              // // kandidat 2
+              // document.querySelector('#hasilVoteKandidat2').textContent = kandidat[1].jumlah_suara;
+            });
+          </script>
+        @endpush
+  <!---- @END__LIVE_COUNTING ---->
+      </div>
+    </div>
+  </section>
+
+  <!---- @START__CEK_DAFTAR_PEMILIH_TETAP ---->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="{{ asset('img/Bullet journal-pana.png') }}" class="w-100">
+      </div>
+      <div class="col-md-8 my-5">
+        <form name="cek-daftar-pemilih-tetap">
+          <h2 class="text-color fw-bold">Cek Daftar Pemilih Tetap</h2>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit obcaecati officia hic mollitia, fugit commodi maxime, iure dolore similique optio qui quaerat, laborum exercitationem sint ex. Reiciendis ipsa sint velit?</p>
+          <div class="row">
+            <div class="col-md-8">
+              <input type="text" pattern="[0-9].{8,}" class="form-control p-2 px-4 rounded-pill" name="nim" placeholder="Masukan NIM" />
+            </div>
+            <div class="col-md-4">
+              <button class="btn btn-block rounded-pill bg-color p-2 text-white px-4"><i class="fa fa-paper-plane"></i> Cek</button>
+            </div>
+          </div>
+        </form>
+
+        <div id="resultDaftarPemilihTetap" class="mt-3"></div>
+      </div>
+    </div>
+  </div>
+
+  @push('scripts')
+    <script>
+      const daftarPemilihTetap = () => {
+        const formCekDaftarPemilihTetap = document.forms['cek-daftar-pemilih-tetap'];
+
+        formCekDaftarPemilihTetap.onsubmit = (event) => {
+          event.preventDefault();
+
+          axios.post('/api/cekDPT', { nim: formCekDaftarPemilihTetap['nim'].value }).then((response) => {
+            const mahasiswa = response.data.data;
+            console.log({ dpt: mahasiswa.email })
+
+            if (response.data.status.toLowerCase() === 'success') {
+              let emailResult;
+              if (mahasiswa.email == "") {
+                emailResult = 'Anda belum verifikasi';
+              }else{
+                emailResult = mahasiswa.email;
+              }
+              console.log(emailResult);
+              document.getElementById('resultDaftarPemilihTetap').innerHTML = `
+                <div class="alert alert-success" role="alert">
+                  Anda Terdaftar Sebagai Pemilih Tetap
+                </div>
+                <table class="table">
+                  <thead>
+                    <th>NIM</th>
+                    <th>Nama</th>
+                    <th>Email</th>
+                  </thead>  
+                  <tbody>
+                    <tr>
+                      <td>${formCekDaftarPemilihTetap['nim'].value}</td>
+                      <td>${mahasiswa.name}</td>
+                      <td class="${emailResult === 'Anda belum verifikasi' ? 'text-danger' : 'text-success'}">${emailResult}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              `;
+            } 
+          }).catch((error) => {
+            document.getElementById('resultDaftarPemilihTetap').innerHTML = `
+              <div class="alert alert-danger" role="alert">
+                NIM Tidak di Temukan
+              </div>
+            `;
+          });
         }
-      };
+      };  
 
-      const chartRegisterUsers = new Chart(
-        document.getElementById('chartRegisterUsers'),
-        config,
-      );
-    });
-  </script>
-  <!---- @END__Daftar_Mahasiswa_Teregistrasi --->
+      daftarPemilihTetap();
+    </script>
+  @endpush
+  <!---- @END__CEK_DAFTAR_PEMILIH_TETAP ---->
 
-  
-  <!---- @START__Syarat_dan_Ketentuan--->
-  <section class="section bg-light" id="features">
-    <div class="container">
-      <div class="row justify-content-center mb-5">
-        <div class="col-lg-7 text-center">
-          <h2 class="fw-bold">Syarat Dan Ketentuan</h2>
-          <p class="text-muted">Syarat & Ketentuan Ini Harus dibaca bersamaan dengan Kebijakan Privasi.</p>
+  <hr class="container" />
+  <br />
+  <br />
+  <br />
+
+  <!-- @START__SYARAT_DAN_KETENTUAN -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h2 class="text-color fw-bold text-center">Syarat & Ketentuan</h2>
+        <ol class="mt-5 text-justify">
+          <li>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore,
+            ex eos vero consequatur dolorum sequi fugiat porro, officia
+            laboriosam, cum asperiores repellendus maiores distinctio animi.
+            Vero error enim eius quaerat.
+          </li>
+          <li>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore,
+            ex eos vero consequatur dolorum sequi fugiat porro, officia
+            laboriosam, cum asperiores repellendus maiores distinctio animi.
+            Vero error enim eius quaerat.
+          </li>
+          <li>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore,
+            ex eos vero consequatur dolorum sequi fugiat porro, officia
+            laboriosam, cum asperiores repellendus maiores distinctio animi.
+            Vero error enim eius quaerat.
+          </li>
+          <li>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore,
+            ex eos vero consequatur dolorum sequi fugiat porro, officia
+            laboriosam, cum asperiores repellendus maiores distinctio animi.
+            Vero error enim eius quaerat.
+          </li>
+          <li>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore,
+            ex eos vero consequatur dolorum sequi fugiat porro, officia
+            laboriosam, cum asperiores repellendus maiores distinctio animi.
+            Vero error enim eius quaerat.s
+          </li>
+        </ol>
+      </div>
+      <div class="col-md-6">
+        <img src="{{ asset('/img/Accept terms-pana.png') }}" class="w-100" />
+      </div>
+    </div>
+  </div>
+  <!-- @END__SYARAT_DAN_KETENTIAN -->
+
+  <br />
+  <hr class="container" />
+  <br />
+  <br />
+  <br />
+
+  <!-- @START__HUBUNGI_KAMI -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="{{ asset('/img/Texting-amico.png') }}" class="w-100" />
+      </div>
+      <div class="col-md-8">
+        <h2 class="text-center text-color fw-bold mb-4">Hubungi Kami</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <label class="mb-2 fw-bold">Nama</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Masukan Nama Lengkap"
+            />
+          </div>
+          <div class="col-md-6">
+            <label class="mb-2 fw-bold">NIM</label>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Masukan NIM"
+            />
+          </div>
+          <div class="col-md-12 mt-2 mb-2">
+            <label class="mb-2 fw-bold">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              placeholder="Masukan Email"
+            />
+          </div>
+          <div class="col-md-12 mt-2 mb-2">
+            <label class="mb-2 fw-bold">Pesan</label>
+            <textarea
+              rows="5"
+              placeholder="Masukan Pesan"
+              class="form-control"
+            ></textarea>
+            <button type="submit" class="btn btn-md bg-color text-white mt-4">
+              <i class="fa fa-paper-plane"></i> Kirim
+            </button>
+          </div>
         </div>
       </div>
-
-      <div data-aos="fade-down" class="row align-items-center mb-5">
-        <div class="col-md-5 order-2 order-md-1 mt-md-0 mt-5">
-          <p class="text-muted mb-5">
-            <ul>
-              <li>Pemilihan Pasangan calon Ketua & Wakil BEM dilaksanakan secara LANGSUNG & TIDAK BOLEH DIWAKILKAN dengan mengedepankan prinsip-prinsip Rahasia, Umum, Bebas, jujur dan adil.</li>
-              <li>Pemilih Merupakan mahasiswa aktif STT Terpadu Nurul FIkri Yang Telah Melakukan Registrasi Ulang pada waktu yang telah ditetapkan.</li>
-              <li>Pemungutan Suara Secara Daring pada Web E-Pemira Dilakukan Pada Tanggal 13 Februari 2021 Pukul 07.00 Sampai Pukul 20.00</li>
-              <li>Voting Akan ditutup pada tanggal 13 Februari 2021 pada pukul 21.00</li>
-              <li>Pemilihan ini hanya dilakukan satu kali dan tidak dapat melakukan pemilihan ulang.</li>
-              <li>Kandidat terpilih ditetapkan berdasarkan suara terbanyak hasil pemilihan.</li>
-            </ul>
-          </p>
-        </div>
-
-        <div class="col-md-6 ms-md-auto order-1 order-md-2">
-          <div class="position-relative">
-            <div class="ms-5 features-img">
-              <img src="{{ asset('/images/features-1.png') }}" alt="" class="img-fluid d-block mx-auto rounded" />
-            </div>
-            <img src="{{ asset('/images/dot-img.png') }}" alt="" class="dot-img-left" />
+      <div class="col-md-12 mt-5">
+        <div class="row text-center mt-5">
+          <div class="col-md-4">
+            <a href="" class="sosmed-link"
+              ><i class="fa-brands fa-instagram"></i> kprsttnf</a
+            >
+          </div>
+          <div class="col-md-4">
+            <a href="" class="sosmed-link"
+              ><i class="fa-solid fa-envelope"></i> admin@pemirasttnf.com</a
+            >
+          </div>
+          <div class="col-md-4">
+            <a href="" class="sosmed-link"
+              ><i class="fa-brands fa-whatsapp"></i> 0895611952367</a
+            >
           </div>
         </div>
       </div>
     </div>
-  </section>
-  <!---- @END__Syarat_dan_Ketentuan ---->
+  </div>
+  <!-- @END__HUBUNGI_KAMI -->
 
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"
+  ></scripts>
+  <script src="assets/js/countdown.js"></script>
+  <script type="text/javascript">
+    window.$crisp = [];
+    window.CRISP_WEBSITE_ID = "5e6c2451-b3d6-4db8-adab-1163292d7bbe";
+    (function () {
+      d = document;
+      s = d.createElement("script");
+      s.src = "https://client.crisp.chat/l.js";
+      s.async = 1;
+      d.getElementsByTagName("head")[0].appendChild(s);
+    })();
+  </script>
 @endsection
-

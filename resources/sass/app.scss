@@ -20,17 +20,136 @@
 */
 // @import 'utils/classes';
 // Components
-@import "variables";
-@import "general";
-@import "icons";
-@import "menu";
-@import "components";
-@import "helper";
-@import "loader";
-@import "hero";
-@import "service";
-@import "features";
-@import "pricing";
-@import "team";
-@import "contact";
-@import "footer";
+// @import "variables";
+// @import "general";
+// @import "icons";
+// @import "menu";
+// @import "components";
+// @import "helper";
+// @import "loader";
+// @import "hero";
+// @import "service";
+// @import "features";
+// @import "pricing";
+// @import "team";
+// @import "contact";
+// @import "footer";
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+.active {
+  color: #08679e !important;
+  font-weight: bold;
+}
+
+.text-color {
+  color: #08679e !important;
+}
+.bg-color {
+  background: #08679e !important;
+}
+
+.btn-primary {
+  background: #08679e !important;
+  &:hover {
+    filter: brightness(90%);
+  }
+}
+
+.btn-light {
+  &:hover {
+    filter: brightness(90%);
+  }
+}
+
+.nav-link {
+  color: #08679e !important;
+}
+
+.logo-icon {
+  width: 40px;
+}
+
+.jumbutron {
+  height: 100vh;
+  border: 1px solid rgba(255, 255, 255, 0);
+}
+
+.jumbutron-content {
+  margin-top: 8rem;
+}
+
+.wave-header {
+  margin-top: -7rem;
+}
+.wave-header:last-child {
+  margin-top: -0.3rem;
+}
+
+#demo {
+  border: 5px dashed #fff;
+  color: #fff;
+  background: #08679e;
+}
+
+.countdown {
+  background: #08679e;
+  text-align: center;
+}
+
+.guide {
+  margin-top: 25rem;
+}
+
+.step-guide {
+  border: none;
+  background: none;
+}
+
+.foot-path {
+  border: 2px dashed #08679e; 
+  width: 100%; 
+  height: 2px;
+  @media screen and (max-width: 991px) {
+    height: 90px;
+    width: 2px;
+    margin: auto;
+  }
+}
+
+// .step:not(:first-child)::before {
+//   content: "";
+//   display: block;
+//   position: absolute;
+//   width: 8rem;
+//   margin-left: -5rem;
+//   margin-top: 6rem;
+//   // top: 50%;
+//   // transform: translate(-50%);
+//   border: 2px #08679e dashed;
+// }
+
+.img-guide {
+  // width: 65%;
+  background: #fff;
+  padding: 18px;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.sosmed-link {
+  text-decoration: none;
+  font-size: 20px;
+  color: #08679e;
+}
+
+// #chartVotingSementara {
+//   width: 500px!important;
+//   height: 500px!important;
+// }

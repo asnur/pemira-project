@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DPTController;
 use App\Http\Controllers\RegisFromNimController;
 use App\Http\Controllers\VotingController;
 use Illuminate\Http\Request;
@@ -22,3 +23,4 @@ Route::post('/regis', [RegisFromNimController::class, 'regis'])->name('regis');
 Route::get('/countRegis', [RegisFromNimController::class, 'countRegis'])->name('count-regis');
 Route::put('/voting', [VotingController::class, 'vote'])->name('voting');
 Route::get('/countVoting', [VotingController::class, 'countVoting'])->name('count-voting');
+Route::post('/cekDPT', [DPTController::class, 'index'])->name('cek-dpt');
