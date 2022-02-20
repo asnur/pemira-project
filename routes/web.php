@@ -32,4 +32,3 @@ Route::prefix('/admin')->group(function () {
     Route::get('/voting', [VotingController::class, 'index']);
     Route::resource('/kandidat', KandidatController::class);
 });
-
