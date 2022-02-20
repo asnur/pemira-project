@@ -1,13 +1,13 @@
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-light sidebar sidebar-dark accordions" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin">
-        <img src="{{ asset('images/LOGO JPG.png') }}" class="img-fluid" width="60px" alt="Responsive image">
+        <img src="{{ asset('images/LOGO JPG.png') }}" class="img-fluid" width="50px" alt="Responsive image">
         <div class="sidebar-brand-text mx-3">KPRSTTNF</div>
     </a>
 
     <!-- Divider -->
-    <hr class="sidebar-divider my-0">
+    <hr class="sidebar-divider my-0 mb-3">
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item @yield('active-dashboard')">
@@ -33,10 +33,10 @@
     </li>
 
     <!-- Divider -->
-    <hr class="sidebar-divider d-none d-md-block">
+    <hr class="sidebar-divider d-none d-md-block mt-2">
 
     <!-- Sidebar Toggler (Sidebar) -->
-    <div class="text-center d-none d-md-inline">
+    <div class="text-center d-none d-md-inline bg-primay">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
 

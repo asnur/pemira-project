@@ -37,11 +37,11 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        $mahasiswa = new Mahasiswa;
+        $mahasiswa = new User;
         $mahasiswa->nim = $request->nim;
-        $mahasiswa->nama = $request->nama;
+        $mahasiswa->name = $request->nama;
         $mahasiswa->email = $request->email;
-        $mahasiswa->thn_masuk = $request->thn_masuk;
+        $mahasiswa->tahun = $request->thn_masuk;
         $mahasiswa->save();
 
         return redirect('admin/mahasiswa');
@@ -66,7 +66,7 @@ class MahasiswaController extends Controller
      */
     public function edit($id)
     {
-        $mahasiswa = Mahasiswa::find($id);
+        $mahasiswa = User::find($id);
         return view('pages.admin.mahasiswa', compact('mahasiswa'));
     }
 
@@ -79,11 +79,11 @@ class MahasiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $mahasiswa = Mahasiswa::find($id);
+        $mahasiswa = User::find($id);
         $mahasiswa->nim = $request->nim;
-        $mahasiswa->nama = $request->nama;
+        $mahasiswa->name = $request->nama;
         $mahasiswa->email = $request->email;
-        $mahasiswa->thn_masuk = $request->thn_masuk;
+        $mahasiswa->tahun = $request->thn_masuk;
         $mahasiswa->save();
 
         return redirect('admin/mahasiswa');
@@ -97,7 +97,7 @@ class MahasiswaController extends Controller
      */
     public function destroy($id)
     {
-        $mahasiswa = Mahasiswa::findOrFail($id);
+        $mahasiswa = User::findOrFail($id);
         $mahasiswa->delete();
 
         return redirect('admin/mahasiswa');
