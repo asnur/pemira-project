@@ -232,7 +232,7 @@
         
   <!---- @START__LIVE_COUNTING --->
         <div class="col-lg-4">
-          <div data-aos="fade-down" class="border d-flex justify-content-center align-items-center mb-5">
+          <div data-aos="fade-down" class="d-flex justify-content-center align-items-center mb-5">
             <canvas id="chartVotingSementara" aria-label="chart voting sementara"></canvas>
           </div>
         </div>
@@ -290,25 +290,85 @@
     </div>
   </section>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <img src="{{ asset('img/Bullet journal-pana.png') }}" class="w-100">
-    </div>
-    <div class="col-md-8 my-5">
-      <h2 class="text-color fw-bold">Cek Daftar Pemilih Tetap</h2>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit obcaecati officia hic mollitia, fugit commodi maxime, iure dolore similique optio qui quaerat, laborum exercitationem sint ex. Reiciendis ipsa sint velit?</p>
-      <div class="row">
-        <div class="col-md-8">
-          <input type="number" class="form-control p-2 px-4 rounded-pill" placeholder="Masukan NIM">
-        </div>
-        <div class="col-md-4">
-          <button class="btn btn-block rounded-pill bg-color p-2 text-white px-4"><i class="fa fa-paper-plane"></i> Cek</button>
-        </div>
+  <!---- @START__CEK_DAFTAR_PEMILIH_TETAP ---->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="{{ asset('img/Bullet journal-pana.png') }}" class="w-100">
+      </div>
+      <div class="col-md-8 my-5">
+        <form name="cek-daftar-pemilih-tetap">
+          <h2 class="text-color fw-bold">Cek Daftar Pemilih Tetap</h2>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit obcaecati officia hic mollitia, fugit commodi maxime, iure dolore similique optio qui quaerat, laborum exercitationem sint ex. Reiciendis ipsa sint velit?</p>
+          <div class="row">
+            <div class="col-md-8">
+              <input type="text" pattern="[0-9].{8,}" class="form-control p-2 px-4 rounded-pill" name="nim" placeholder="Masukan NIM" />
+            </div>
+            <div class="col-md-4">
+              <button class="btn btn-block rounded-pill bg-color p-2 text-white px-4"><i class="fa fa-paper-plane"></i> Cek</button>
+            </div>
+          </div>
+        </form>
+
+        <div id="resultDaftarPemilihTetap" class="mt-3"></div>
       </div>
     </div>
   </div>
-</div>
+
+  @push('scripts')
+    <script>
+      const daftarPemilihTetap = () => {
+        const formCekDaftarPemilihTetap = document.forms['cek-daftar-pemilih-tetap'];
+
+        formCekDaftarPemilihTetap.onsubmit = (event) => {
+          event.preventDefault();
+
+          axios.post('/api/cekDPT', { nim: formCekDaftarPemilihTetap['nim'].value }).then((response) => {
+            const mahasiswa = response.data.data;
+            console.log({ dpt: mahasiswa.email })
+
+            if (response.data.status.toLowerCase() === 'success') {
+              let emailResult;
+              if (mahasiswa.email == "") {
+                emailResult = 'Anda belum verifikasi';
+              }else{
+                emailResult = mahasiswa.email;
+              }
+              console.log(emailResult);
+              document.getElementById('resultDaftarPemilihTetap').innerHTML = `
+                <div class="alert alert-success" role="alert">
+                  Anda Terdaftar Sebagai Pemilih Tetap
+                </div>
+                <table class="table">
+                  <thead>
+                    <th>NIM</th>
+                    <th>Nama</th>
+                    <th>Email</th>
+                  </thead>  
+                  <tbody>
+                    <tr>
+                      <td>${formCekDaftarPemilihTetap['nim'].value}</td>
+                      <td>${mahasiswa.name}</td>
+                      <td class="${emailResult === 'Anda belum verifikasi' ? 'text-danger' : 'text-success'}">${emailResult}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              `;
+            } 
+          }).catch((error) => {
+            document.getElementById('resultDaftarPemilihTetap').innerHTML = `
+              <div class="alert alert-danger" role="alert">
+                NIM Tidak di Temukan
+              </div>
+            `;
+          });
+        }
+      };  
+
+      daftarPemilihTetap();
+    </script>
+  @endpush
+  <!---- @END__CEK_DAFTAR_PEMILIH_TETAP ---->
 
   <hr class="container" />
   <br />

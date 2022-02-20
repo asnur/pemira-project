@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\VotingController;
@@ -22,8 +23,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Auth::routes();
+// Auth::routes();
 
+Route::get('/register', [AuthController::class, 'register']);
+Route::get('/login', [AuthController::class, 'login']);
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/voting', [VotingController::class, 'index']);
 Route::prefix('/admin')->group(function () {

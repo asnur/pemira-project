@@ -53,6 +53,19 @@
   background: #08679e !important;
 }
 
+.btn-primary {
+  background: #08679e !important;
+  &:hover {
+    filter: brightness(90%);
+  }
+}
+
+.btn-light {
+  &:hover {
+    filter: brightness(90%);
+  }
+}
+
 .nav-link {
   color: #08679e !important;
 }

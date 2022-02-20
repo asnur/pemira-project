@@ -44,7 +44,7 @@
 	<div id="app">
 		@include('../partials/preloader')
 
-		@if (!urlContains('auth'))
+		@if (!Request::is('login') && !Request::is('register'))
 			@include('../partials/navbar')
 		@endif
 

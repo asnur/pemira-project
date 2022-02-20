@@ -6,11 +6,6 @@
     style="background-image: url('{{ asset("/images/auth-bg.png") }}')"
   >
     <div class="container">
-      <div class="d-flex justify-content-between mb-5">
-        <a href="/" class="btn btn-light shadow-sm border" style="color: #333">Kembali ke Halaman Utama</a>
-        <a href="/auth/login" class="btn btn-dark">Halaman Login</a>
-      </div>
-
       <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6 col-xl-5">
           <div class="bg-white shadow">
@@ -18,7 +13,7 @@
               <div class="text-center mt-3">
                 <a href="/">
                   <img 
-                    src="{{ asset("/images/logo.png") }}" 
+                    src="{{ asset("/img/logo.png") }}" 
                     alt="" 
                     class="logo-dark" 
                     height="150" 
@@ -77,6 +72,10 @@
                     <input name="submit" value="Registrasi Ulang" type="submit" class="btn btn-primary btn-none" disabled>
                   </div>
                 </form>
+                <div class="d-flex justify-content-between mt-3">
+                  <a href="/" class="btn btn-light shadow-sm border" style="color: #333">Kembali ke Halaman Utama</a>
+                  <a href="/login" class="btn btn-primary text-white">Halaman Login</a>
+                </div>
               </div>
             </div>
           </div>

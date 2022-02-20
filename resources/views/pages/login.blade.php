@@ -6,10 +6,6 @@
     style="background-image: url('{{ asset('/images/auth-bg.png') }}');"
   >
     <div class="container">
-      <div class="d-flex justify-content-between mb-5">
-        <a href="/" class="btn btn-light shadow-sm border" style="color: #333">Kembali ke Halaman Utama</a>
-        <a href="/auth/register" class="btn btn-dark">Halaman Register</a>
-      </div>
 
       <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6 col-xl-5">
@@ -17,7 +13,7 @@
             <div class="p-4">
               <div class="text-center mt-3">
                 <a href="/">
-                  <img src="{{ asset('/images/logo.png') }}" alt="" class="logo-dark" height="150" />
+                  <img src="{{ asset('/img/logo.png') }}" alt="" class="logo-dark" height="150" />
                 </a>
                 <h3>LOGIN</h3>
                 <p class="text-muted mt-2">Login Untuk memulai Voting</p>
@@ -56,6 +52,11 @@
                   </button>
                 </div>
               </form>
+              <div class="d-flex justify-content-between mt-3">
+                <a href="/" class="btn btn-light shadow-sm border" style="color: #333">Kembali ke Halaman Utama</a>
+                <a href="/register" class="btn btn-primary text-white">Halaman Register</a>
+              </div>
+        
             </div>
           </div>
         </div>
