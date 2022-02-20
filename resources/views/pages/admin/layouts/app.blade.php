@@ -22,6 +22,7 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('template/css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('template/css/custom.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     @yield('dataTablesCSS')
 
 </head>
@@ -169,6 +170,14 @@
     </script>
     {{-- <script src="{{ asset('template/js/demo/chart-area-demo.js') }}"></script> --}}
     <script src="{{ asset('template/js/demo/chart-pie-demo.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    <script type="text/javascript">
+     $(document).ready(function() {
+            $('#summernote').summernote({
+                height: 400
+            });
+    });
+    </script>
     @include('sweetalert::alert')
 </body>
 

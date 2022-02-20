@@ -15,7 +15,15 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
+    
+    <!-- Nav Item - Tables -->
+    <li class="nav-item @yield('active-kandidat')">
+        <a class="nav-link" href="/admin/kandidat"> 
+            <i class="fas fa-fw fa-user-tie"></i>
+            <span>Kandidat</span></a>
+    </li>
 
+    <!-- Nav Item - Voting -->
     <li class="nav-item @yield('active-voting')">
         <a class="nav-link" href="/admin/voting">
             <i class="fas fa-fw fas fa-poll"></i>
@@ -25,7 +33,7 @@
     {{-- <!-- Divider -->
     <hr class="sidebar-divider"> --}}
 
-    <!-- Nav Item - Tables -->
+    <!-- Nav Item - Mahasiswa -->
     <li class="nav-item @yield('active-users')">
         <a class="nav-link" href="/admin/mahasiswa">
             <i class="fas fa-fw fa-table"></i>
