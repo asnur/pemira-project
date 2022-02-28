@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/checkNim', [RegisFromNimController::class, 'check'])->name('check-nim');
-Route::post('/login', [RegisFromNimController::class, 'login'])->name('login');
+// Route::post('/login', [RegisFromNimController::class, 'login'])->name('login');
 Route::post('/regis', [RegisFromNimController::class, 'regis'])->name('regis');
 Route::get('/countRegis', [RegisFromNimController::class, 'countRegis'])->name('count-regis');
 Route::put('/voting', [VotingController::class, 'vote'])->name('voting');

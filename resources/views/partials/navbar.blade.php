@@ -1,42 +1,48 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white">
-  <div class="container">
-    <a class="navbar-brand text-color" href="#">
-      <img src="{{ asset('/img/logo.png') }}" class="logo-icon" />
-      <span class="mx-2 mt-5 fw-bold">PEMIRA</span>
-    </a>
-    
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul
-        class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-end w-100"
-      >
-        <li class="nav-item mx-2">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item mx-2">
-          <a class="nav-link" href="#">Live Count</a>
-        </li>
-        <li class="nav-item mx-2">
-          <a class="nav-link" href="#">Cek DPT</a>
-        </li>
-        <li class="nav-item mx-2 border border-2 rounded-pill px-2">
-          <a class="nav-link fw-bold" href="#"
-            ><i class="fa fa-sign-in"></i> Login</a
-          >
-        </li>
-      </ul>
+    <div class="container">
+        <a class="navbar-brand text-color" href="{{ Request::is('voting') ? '/' : '#' }}">
+            <img src="{{ asset('/img/logo.png') }}" class="logo-icon" />
+            <span class="mx-2 mt-5 fw-bold">PEMIRA</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-end w-100">
+                <li class="nav-item mx-2">
+                    <a class="nav-link active" aria-current="page"
+                        href="{{ Request::is('voting') ? '/' : '#' }}">Home</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link" href="{{ Request::is('voting') ? '/#count' : '#count' }}">Live
+                        Count</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link" href="{{ Request::is('voting') ? '/#dpt' : '#dpt' }}">Cek DPT</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link" href="{{ Request::is('voting') ? '/#saran' : '#saran' }}">Saran</a>
+                </li>
+                @if (Auth::check())
+                    <li class="nav-item mx-2 border border-2 rounded-pill px-2">
+                        <a class="nav-link fw-bold" onclick="document.getElementById('form-logout').submit()"><i
+                                class="fa fa-sign-out"></i>
+                            Logout</a>
+                    </li>
+                @else
+                    <li class="nav-item mx-2 border border-2 rounded-pill px-2">
+                        <a class="nav-link fw-bold" href="{{ route('login') }}"><i class="fa fa-sign-in"></i>
+                            Login</a>
+                    </li>
+                @endif
+                <form action="{{ route('logout') }}" method="POST" id="form-logout">
+                    @csrf
+                </form>
+            </ul>
+        </div>
     </div>
-  </div>
 </nav>
 
 {{-- @push('scripts')

@@ -15,10 +15,10 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
-    
+
     <!-- Nav Item - Tables -->
     <li class="nav-item @yield('active-kandidat')">
-        <a class="nav-link" href="/admin/kandidat"> 
+        <a class="nav-link" href="/admin/kandidat">
             <i class="fas fa-fw fa-user-tie"></i>
             <span>Kandidat</span></a>
     </li>
@@ -38,6 +38,12 @@
         <a class="nav-link" href="/admin/mahasiswa">
             <i class="fas fa-fw fa-table"></i>
             <span>Mahasiswa</span></a>
+    </li>
+
+    <li class="nav-item @yield('active-saran')">
+        <a class="nav-link" href="/admin/saran">
+            <i class="fas fa-fw fa-envelope"></i>
+            <span>Kritik Saran</span></a>
     </li>
 
     <!-- Divider -->

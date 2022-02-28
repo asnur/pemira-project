@@ -93,10 +93,10 @@
     <script>
         axios.get('/api/countRegis').then((response) => {
             // index untuk angkatan
-            const users2018 = 0;
-            const users2019 = 1;
-            const users2020 = 2;
-            const users2021 = 3;
+            const users2018 = 1;
+            const users2019 = 2;
+            const users2020 = 3;
+            const users2021 = 4;
 
             console.log({
                 countRegis: response
@@ -172,11 +172,11 @@
     <script src="{{ asset('template/js/demo/chart-pie-demo.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
     <script type="text/javascript">
-     $(document).ready(function() {
+        $(document).ready(function() {
             $('#summernote').summernote({
                 height: 400
             });
-    });
+        });
     </script>
     @include('sweetalert::alert')
 </body>
