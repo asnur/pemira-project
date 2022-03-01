@@ -21,7 +21,7 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
-          port: 22
+          port: ${{ secrets.SSH_PORT }}
           script: |
             cd /home/pemt7511/public_html/
             git clone https://github.com/asnur/pemira-project -b master
