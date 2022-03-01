@@ -25,6 +25,6 @@ jobs:
           script: |
             cd /home/pemt7511/public_html/
             git clone https://github.com/asnur/pemira-project -b master
-            cd sip-dev-laravel
+            cd pemira-project
             git pull origin master
             composer install
