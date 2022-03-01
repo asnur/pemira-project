@@ -23,9 +23,9 @@
                 <div class="col-md-8">
                     <h1 class="fs-1">Selamat Datang di Website Pemira</h1>
                     <p class="fs-5 mt-4">
-                        Pemira atau sering di sebut pemilihan raya adalah event tahunan kampus STT Terpadu Nurul Fikri untuk
-                        memilih penerus presiden mahasiswa & pengurus DPM di periode terbaru, yang akan diadakan secara
-                        online & melakukan voting melalui website ini.
+                        PEMIRA atau Pemilihan Raya merupakan pesta demokrasi tahunan STT Terpadu Nurul Fikri untuk memilih
+                        dan menentukan PRESMA ( Presiden Mahasiswa ) - WAPRESMA ( Wakil Presiden Mahasiswa ) dan Anggota DPM
+                        ( Dewan Perwakilan Mahasiswa ).
                     </p>
                     <a class="btn btn-lg border-2 rounded-pill fw-bold text-white" style="background: #08679e;"
                         href="{{ route('regis') }}">
