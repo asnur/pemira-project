@@ -27,8 +27,8 @@
                 </li>
                 @if (Auth::check())
                     <li class="nav-item mx-2 border border-2 rounded-pill px-2">
-                        <a class="nav-link fw-bold" href="" onclick="document.getElementById('form-logout').submit()"><i
-                                class="fa fa-sign-out"></i>
+                        <a class="nav-link fw-bold" href="#"
+                            onclick="document.getElementById('form-logout').submit()"><i class="fa fa-sign-out"></i>
                             Logout</a>
                     </li>
                 @else
