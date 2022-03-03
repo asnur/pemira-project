@@ -1,44 +1,7 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-
-// Media
-// @import 'utils/media';
-
-// Variables
-// @import 'utils/variables';
-// @import 'variables';
-// @import 'helper';
-// @import 'utils/variables';
-// @import 'utils/general';
-// @import 'utils/icons';
-// @import 'utils/helper';
-// @import 'utils/loader';
-
-/* 
-  Public Classes
-  bisa digunakan untuk disemua page/components di website ini
-*/
-// @import 'utils/classes';
-// Components
-// @import "variables";
-// @import "general";
-// @import "icons";
-// @import "menu";
-// @import "components";
-// @import "helper";
-// @import "loader";
-// @import "hero";
-// @import "service";
-// @import "features";
-// @import "pricing";
-// @import "team";
-// @import "contact";
-// @import "footer";
-
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .active {
@@ -74,21 +37,16 @@
   width: 40px;
 }
 
-.jumbutron {
-  height: 100vh;
-  border: 1px solid rgba(255, 255, 255, 0);
-}
+// .jumbutron-content {
+//   margin-top: 8rem;
+// }
 
-.jumbutron-content {
-  margin-top: 8rem;
-}
-
-.wave-header {
-  margin-top: -7rem;
-}
-.wave-header:last-child {
-  margin-top: -0.3rem;
-}
+// .wave-header {
+//   margin-top: -7rem;
+// }
+// .wave-header:last-child {
+//   margin-top: -0.3rem;
+// }
 
 #demo {
   border: 5px dashed #fff;
@@ -96,14 +54,9 @@
   background: #08679e;
 }
 
-.countdown {
-  background: #08679e;
-  text-align: center;
-}
-
-.guide {
-  margin-top: 25rem;
-}
+// .guide {
+//   margin-top: 25rem;
+// }
 
 .step-guide {
   border: none;
@@ -121,18 +74,6 @@
   }
 }
 
-// .step:not(:first-child)::before {
-//   content: "";
-//   display: block;
-//   position: absolute;
-//   width: 8rem;
-//   margin-left: -5rem;
-//   margin-top: 6rem;
-//   // top: 50%;
-//   // transform: translate(-50%);
-//   border: 2px #08679e dashed;
-// }
-
 .img-guide {
   // width: 65%;
   background: #fff;
@@ -148,8 +89,3 @@
   font-size: 20px;
   color: #08679e;
 }
-
-// #chartVotingSementara {
-//   width: 500px!important;
-//   height: 500px!important;
-// }
