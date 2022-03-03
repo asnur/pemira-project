@@ -487,11 +487,10 @@
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-        < /scripts> <
-        script src = "assets/js/countdown.js" >
-    </script>
+    </script> --}}
+    <script src = "assets/js/countdown.js"></script>
     <script type="text/javascript">
         window.$crisp = [];
         window.CRISP_WEBSITE_ID = "5e6c2451-b3d6-4db8-adab-1163292d7bbe";
