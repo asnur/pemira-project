@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
+use Aman\EmailVerifier\EmailChecker;
 
 class RegisFromNimController extends Controller
 {
@@ -74,20 +75,20 @@ class RegisFromNimController extends Controller
                 $this->response['message'] = 'Email has Already Use Or Register';
                 return response($this->response, 200);
             } else {
-                $checkMail = Http::get("https://api.trumail.io/v2/lookups/JSON?email=$validate_email");
                 $details = [
                     'nim' => $request->input('nim'),
                     'password' => $this->generateRandomString()
                 ];
-                if ($checkMail['deliverable'] == 1) {
+                $checkMail = app(EmailChecker::class)->checkMxAndDnsRecord($validate_email);
+                if ($checkMail[0] == 'invalid') {
+                    $this->response['status'] = 'Failed';
+                    $this->response['message'] = 'Email Not Deliver';
+                    return response($this->response, 200);
+                } else {
                     Mail::to($request->input('email'))->send(new RegisMail($details));
                     User::where('nim', $request->input('nim'))->update(['email' => $request->input('email'), 'status' => 1, 'password' => Hash::make($details['password'])]);
                     $this->response['status'] = 'Success';
                     $this->response['message'] = 'Email Success to Registered';
-                    return response($this->response, 200);
-                } else {
-                    $this->response['status'] = 'Failed';
-                    $this->response['message'] = 'Email Not Deliverable';
                     return response($this->response, 200);
                 }
             }
