@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 
 class RegisFromNimController extends Controller
@@ -73,15 +74,22 @@ class RegisFromNimController extends Controller
                 $this->response['message'] = 'Email has Already Use Or Register';
                 return response($this->response, 200);
             } else {
+                $checkMail = Http::get("https://api.trumail.io/v2/lookups/JSON?email=$validate_email");
                 $details = [
                     'nim' => $request->input('nim'),
                     'password' => $this->generateRandomString()
                 ];
-                Mail::to($request->input('email'))->send(new RegisMail($details));
-                User::where('nim', $request->input('nim'))->update(['email' => $request->input('email'), 'status' => 1, 'password' => Hash::make($details['password'])]);
-                $this->response['status'] = 'Success';
-                $this->response['message'] = 'Email Success to Registered';
-                return response($this->response, 200);
+                if ($checkMail['deliverable'] == 1) {
+                    Mail::to($request->input('email'))->send(new RegisMail($details));
+                    User::where('nim', $request->input('nim'))->update(['email' => $request->input('email'), 'status' => 1, 'password' => Hash::make($details['password'])]);
+                    $this->response['status'] = 'Success';
+                    $this->response['message'] = 'Email Success to Registered';
+                    return response($this->response, 200);
+                } else {
+                    $this->response['status'] = 'Failed';
+                    $this->response['message'] = 'Email Not Deliverable';
+                    return response($this->response, 200);
+                }
             }
         } else {
             $this->response['status'] = 'Failed';
