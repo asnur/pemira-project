@@ -37,6 +37,12 @@ class AuthController extends Controller
 
 	public function auth(Request $request)
 	{
+		date_default_timezone_set("Asia/Jakarta");
+		// dd(date('H:i:s'));
+		if (date('d') < 23 && date('H') < 6 || date('H') > 19) {
+			Alert::error('Gagal', 'Sesi Voting diTutup');
+			return redirect()->to('/login');
+		}
 		$nim = $request->input('nim');
 		$user =  User::where('nim', $nim)->first();
 		$password = Hash::check($request->input('password'), $user->password);
