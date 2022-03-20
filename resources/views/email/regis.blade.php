@@ -12,7 +12,7 @@
     <p>Untuk Melakukan Voting Pada Website Pemira Anda Bisa menggunakan NIM & Password Sebagai Berikut :</p>
     <p>NIM : <b>{{ $details['nim'] }}</b></p>
     <p>Password : <b>{{ $details['password'] }}</b></p>
-    <p>yang bisa anda Akses pada alamat website resmi <a href="https://facebook.com">KPRSTTNF</a></p>
+    <p>yang bisa anda Akses pada alamat website resmi <a href="https://pemirasttnf.com/login">KPRSTTNF</a></p>
 </body>
 
 </html>
