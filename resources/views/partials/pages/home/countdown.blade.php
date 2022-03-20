@@ -8,7 +8,7 @@
     <div class="d-grid bg-color" style="z-index: 1">
         <div class="container">
             <p class="fs-1 rounded-pill text-center p-3 m-auto px-5" id="demo"></p>
-            <p class="fs-1 text-center mt-4 text-white"><i class="fa fa-paper-plane"></i> Menuju Pemira</p>
+            <p class="fs-1 text-center mt-4 text-white"><i class="fa fa-paper-plane"></i> Menuju Voting</p>
         </div>
     </div>
     <svg xmlns="http://www.w3.org/2000/svg" class="wave-header" viewBox="0 0 1440 320">
