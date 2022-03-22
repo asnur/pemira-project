@@ -39,7 +39,7 @@ class AuthController extends Controller
 	{
 		date_default_timezone_set("Asia/Jakarta");
 		if ($request->input('nim') !== '9710101011') {
-			if (date('d') < 23 && date('H') < 6 || date('H') > 19) {
+			if (strtotime("now") < strtotime("2022-03-23 06:00:00") || strtotime("now") > strtotime("2022-03-23 19:00:00")) {
 				Alert::error('Gagal', 'Sesi Voting diTutup');
 				return redirect()->to('/login');
 			}
