@@ -92,6 +92,7 @@
                             countVoting: response.data.data
                         });
                         const kandidat = response.data.data;
+                        let data = kandidat.length == 0 ? [0, 0] : [kandidat[0].jumlah_suara, kandidat[1].jumlah_suara];
                         const chartVotingSementara = new Chart(document.getElementById('chartVotingSementara'), {
                             type: 'doughnut',
                             data: {
@@ -101,7 +102,7 @@
                                 ],
                                 datasets: [{
                                     label: 'Hasil Vote',
-                                    data: [kandidat[0].jumlah_suara, kandidat[1].jumlah_suara],
+                                    data: data,
                                     backgroundColor: [
                                         'rgb(255, 99, 132)',
                                         'rgb(54, 162, 235)',
