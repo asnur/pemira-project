@@ -46,10 +46,10 @@
                                             'rgba(54, 162, 235, 1)',
                                         ],
                                         data: [
-                                            validateRegisteredUserYear(2018, 0),
-                                            validateRegisteredUserYear(2019, 1),
-                                            validateRegisteredUserYear(2020, 2),
-                                            validateRegisteredUserYear(2021, 3),
+                                            registeredUsers[0].jumlah,
+                                            registeredUsers[1].jumlah,
+                                            registeredUsers[2].jumlah,
+                                            registeredUsers[3].jumlah,
                                         ],
                                     },
                                     {
