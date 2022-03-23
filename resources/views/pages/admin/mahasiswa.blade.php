@@ -39,6 +39,11 @@
                             <input type="email" id="email-mahasiswa" class="form-control" name="email" required>
                         </div>
                         <div class="mb-3">
+                            <label for="email" class="form-label">Password</label>
+                            <input type="password" id="password-mahasiswa" class="form-control" name="password"
+                                placeholder="Masukan Password">
+                        </div>
+                        <div class="mb-3">
                             <label for="thn_masuk" class="form-label">Tahun
                                 Masuk</label>
                             <input type="text" id="tahun-mahasiswa" class="form-control" name="thn_masuk" required>

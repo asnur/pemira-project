@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Mahasiswa;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class MahasiswaController extends Controller
@@ -86,6 +88,9 @@ class MahasiswaController extends Controller
         $mahasiswa->nim = $request->nim;
         $mahasiswa->name = $request->nama;
         $mahasiswa->email = $request->email;
+        if ($request->password != "") {
+            $mahasiswa->password = Hash::make($request->password);
+        }
         $mahasiswa->tahun = $request->thn_masuk;
         $mahasiswa->save();
 
