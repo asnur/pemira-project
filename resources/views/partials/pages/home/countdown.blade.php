@@ -43,7 +43,12 @@
             // If the count down is over, write some text
             if (distance < 0) {
                 clearInterval(x);
-                document.getElementById("demo").innerHTML = "Sesi Voting Sudah di Mulai";
+                document.getElementById("demo").innerHTML = "Sesi Voting Sudah di Mulai ";
+                let limitTime = new Date("Mar 23, 2022 19:00:00").getTime()
+                if (now > limitTime) {
+                    clearInterval(x);
+                    document.getElementById("demo").innerHTML = "Sesi Voting Sudah di Tutup";
+                }
             }
         }, 1000);
     </script>
